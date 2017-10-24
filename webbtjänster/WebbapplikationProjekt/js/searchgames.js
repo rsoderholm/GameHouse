@@ -16,6 +16,15 @@ $(document).ready(function() {
     });
 });
 
+  
+
+    function saveTitleToLocalStorage(gameTitle) {
+        
+        localStorage.setItem("gameTitle", gameTitle);
+        alert("sparat");
+        window.open("Spelinfo.html")
+    }
+
 
 function get_games() {
     //Hämtar sökterm
@@ -57,7 +66,7 @@ function get_games() {
                                   <img class="game-image" src=' + jsonData[i].thumb + ' alt="' + jsonData[i].external + '">\
                                 </a>\
                               <div class="caption">\
-                                <a href="http://www.cheapshark.com/redirect?dealID=' + jsonData[i].cheapestDealID + '">\
+                                <a href="#" onclick = "saveTitleToLocalStorage(jsonData[i].external)">\
                                   <h4 class="game-title">' + jsonData[i].external + '</h4>\
                                 </a>\
                               </div>\
@@ -70,7 +79,8 @@ function get_games() {
                                 </div>\
                               </div>\
                             </figure>';
-					//Bifoga block av HTML till listan av sökresultat
+                    //Bifoga block av HTML till listan av sökresultat
+                    
                     $("#search-results").append(html_block);
                     $("#search-result").show();
 
