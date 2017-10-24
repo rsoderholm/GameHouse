@@ -18,14 +18,6 @@ $(document).ready(function() {
 
 });
 
-function saveTitleToLocalStorage(gameTitle) {
-    
-    
-    localStorage.setItem("gameTitle", gameTitle);
-    alert("sparat");
-    window.open("Spelinfo.html");
-}
-
 
 function get_games() {
     //Hämtar sökterm
@@ -67,7 +59,7 @@ function get_games() {
                                   <img class="game-image" src=' + jsonData[i].thumb + ' alt="' + jsonData[i].external + '">\
                                 </a>\
                               <div class="caption">\
-                                	<a href="#" onclick="saveTitleToLocalStorage("dishonored")">\
+                                	<a href="Spelinfo.html?varTitle=' + jsonData[i].external + '">\
                                   <h4 class="game-title">' + jsonData[i].external + '</h4>\
                                 </a>\
                               </div>\
@@ -81,7 +73,7 @@ function get_games() {
                               </div>\
                             </figure>';
                     //Bifoga block av HTML till listan av sökresultat
-                    
+
                     $("#search-results").append(html_block);
                     $("#search-result").show();
 
@@ -89,7 +81,7 @@ function get_games() {
                     $("img").error(function() {
                         $(this).attr("src", "img/404-thumb.png");
                     });
-                }
+                }                
 
                 $("#search-results button").click(function() {
                     //Inaktivera den klickade knappen
@@ -115,7 +107,7 @@ function get_games() {
                     $("#search-alert").hide();
                 });
             }
-
+            
 
         }).fail(function(data) {
 			// Meddelar användare att Ajax-anropet misslyckades
