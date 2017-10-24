@@ -14,16 +14,17 @@ $(document).ready(function() {
             $('#search-field').blur();
         }
     });
+
+
 });
 
-  
-
-    function saveTitleToLocalStorage(gameTitle) {
-        
-        localStorage.setItem("gameTitle", gameTitle);
-        alert("sparat");
-        window.open("Spelinfo.html")
-    }
+function saveTitleToLocalStorage(gameTitle) {
+    
+    
+    localStorage.setItem("gameTitle", gameTitle);
+    alert("sparat");
+    window.open("Spelinfo.html");
+}
 
 
 function get_games() {
@@ -66,7 +67,7 @@ function get_games() {
                                   <img class="game-image" src=' + jsonData[i].thumb + ' alt="' + jsonData[i].external + '">\
                                 </a>\
                               <div class="caption">\
-                                <a href="#" onclick = "saveTitleToLocalStorage(jsonData[i].external)">\
+                                	<a href="#" onclick="saveTitleToLocalStorage("dishonored")">\
                                   <h4 class="game-title">' + jsonData[i].external + '</h4>\
                                 </a>\
                               </div>\
@@ -126,3 +127,6 @@ function get_games() {
         });
     }
 };
+
+
+    
