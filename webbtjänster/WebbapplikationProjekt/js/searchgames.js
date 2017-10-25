@@ -41,7 +41,7 @@ function get_games() {
     } else {
         //Ersätter utrymme med %20 (API parameterregler)
         var fixedSearch = search.split(' ').join('%20');
-		// Gör så att Ajaz kallar med så kallade "fixed search term"
+		// Gör så att Ajax kallar med så kallade "fixed search term"
         $.ajax({
             url: "http://www.cheapshark.com/api/1.0/games?title=" + fixedSearch + "&r=json",
             dataType: "JSON"
