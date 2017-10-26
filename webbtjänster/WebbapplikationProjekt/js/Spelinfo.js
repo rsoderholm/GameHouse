@@ -10,7 +10,7 @@ var query =  GamesSearchUrl + '&query=' + name + '&resources=game';
 //alert(query);
 
 // construct the uri with our apikey
-var GamesSearchUrl = baseUrl + '/search/?api_key=' + apikey + '&format=json';
+var GamesSearchUrl = baseUrl + '/search/?api_key=' + apikey + '&format=jsonp';
 //var query = "Dishonored";
 
 $(document).ready(function() {
@@ -34,7 +34,9 @@ $(document).ready(function() {
       // send off the query
       $.ajax({
         url: GamesSearchUrl + '&query=' + name,
-        dataType: "json",
+        crossDomain: true,
+        jsonp: 'json_callback',
+        dataType: "jsonp",
         success: searchCallback 
       });
     
